@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.get("/weather", (req,res) => {
     
     let city = req.query.city;
-    request("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5013d165df18f7e63436e8539edfba03&units=metric", function(error, response, body) {
+    request("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + mykey + "&units=metric", function(error, response, body) {
         if(!error && response.statusCode == 200){
         let data = JSON.parse(body);
         res.render("index", {data: data})
