@@ -1,0 +1,14 @@
+<% include partials/header %>
+<div class="weather">
+        <h1>Hello, Say hi to <%= data.name %> from me!</h1>
+        <ul>
+            <li><%= data.weather['0'].main %></li>
+            <li>Temperature: <%= Math.round(data.main['temp']) %> celcius!</li>
+            <li>Humidity: <%= data.main['humidity'] %> percent</li>
+            <li>Wind speed is <%= data.wind['speed'] %> kilometers</li>
+        </ul>
+</div>
+
+<% include partials/footer %>
+
+

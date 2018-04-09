@@ -1,0 +1,21 @@
+body {
+    background: #CC95C0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(95, 167, 216));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(110, 153, 194)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.weather {
+    width: 500;
+    height: 200;
+    margin: 150 auto;
+    text-align: center;
+    color: darkcyan;
+    font-size: 24px;
+    font-family: 'Stylish', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
