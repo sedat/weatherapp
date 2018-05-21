@@ -2,12 +2,179 @@
 <div class="weather">
         <h1>Hello, Say hi to <%= data.name %> from me!</h1>
         <ul>
+            <%
+            var date = new Date();
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var dateString =  date.getHours() + ":" + date.getMinutes() + " " + months[date.getMonth()] + " " + date.getDate();
+            var cords = [data.coord['lon'], data.coord['lat']];
+            var currentDate = date.getHours() + 2;
+            var sunTime = [new Date(data.sys['sunrise']*1000).getHours() +":"+ new Date(data.sys['sunrise']*1000).getMinutes(),
+            new Date(data.sys['sunset']*1000).getHours() +":"+ new Date(data.sys['sunset']*1000).getMinutes()];
+            var chart = [Math.round(forecast.list['1'].main['temp']),
+            Math.round(forecast.list['2'].main['temp']),
+            Math.round(forecast.list['3'].main['temp']),
+                   Math.round(forecast.list['4'].main['temp']),
+                   Math.round(forecast.list['5'].main['temp']),
+                   Math.round(forecast.list['6'].main['temp']),
+                   Math.round(forecast.list['7'].main['temp']),
+                   Math.round(forecast.list['8'].main['temp']),
+                   Math.round(forecast.list['9'].main['temp']),
+               Math.round(forecast.list['10'].main['temp'])];
+            %>
+            <li><%= Math.round(data.main['temp']) %> celcius!</li>
             <li><%= data.weather['0'].main %></li>
-            <li>Temperature: <%= Math.round(data.main['temp']) %> celcius!</li>
-            <li>Humidity: <%= data.main['humidity'] %> percent</li>
-            <li>Wind speed is <%= data.wind['speed'] %> kilometers</li>
+            <li><%= dateString %></li>
         </ul>
-</div>
+        <table>
+            <tr>
+            <td>Wind</td>
+            <td><%= data.wind['speed'] %></td>
+            </tr>
+            <tr>
+            <td>Cloudliness</td>
+            <td><%= data.weather['0'].main %></td>
+            </tr>
+            <tr>
+            <td>Pressure</td>
+            <td><%= data.main['pressure'] %> hpa </td>
+            </tr>
+            <tr>
+            <td>Humidity</td>
+            <td><%= data.main['humidity'] %>%</td>
+            </tr>
+            <tr>
+            <td>Sunrise</td>
+            <td><%= sunTime[0]%></td>
+            </tr>
+            <tr>
+            <td>Sunset</td>
+            <td><%= sunTime[1]%></td>
+            </tr>
+            <tr>
+            <td>Geo cords</td>
+            <td><%= cords %></td>
+            </tr>
+        </table>
+        <h3>Weather Forecasts of the next 10 Hours!</h3>
+        <canvas id="myChart"></canvas>
+        <div id="weatherinfo">
+             <div id="weatherinfodesc">
+                <% if(chart[0] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[0]%>
+                 <%=forecast.list['1'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[1] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[1]%>
+                 <%=forecast.list['2'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[2] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[2]%>
+                 <%=forecast.list['3'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[3] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[3]%>
+                 <%=forecast.list['4'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[4] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[4]%>
+                 <%=forecast.list['5'].wind['speed'] + " m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[5] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[5]%>
+                 <%=forecast.list['6'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[6] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[6]%>
+                 <%=forecast.list['7'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[7] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[7]%>
+                 <%=forecast.list['8'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[8] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[8]%>
+                 <%=forecast.list['9'].wind['speed'] + "m/s" %>
+             </div>
+             <div id="weatherinfodesc">
+             <% if(chart[9] < 15 ) { %>
+                    <img src="/rainy.png" alt="">
+                <% } else {%>
+                    <img src="/sunny.png" alt=""> 
+                <% } %>
+                 <%= chart[9]%>
+                 <%=forecast.list['10'].wind['speed'] + "m/s" %>
+             </div>
+        </div>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    "type": "line",
+                "data": {
+                    // Bir saat sonrası ve bundan sonraki her 9 saatin işaretleri. Çok çok daha efficient bir şekilde yazılabilir
+                    "labels": [<%= currentDate > 24 ? currentDate - 24 : currentDate  %>,<%= currentDate+3 > 24 ? currentDate - 24 + 3 : currentDate + 3  %>,
+                    <%= currentDate + 6 > 24 ? currentDate - 24 + 6: currentDate + 6  %>,<%= currentDate + 9 > 24 ? currentDate - 24 + 9: currentDate  + 9%>,
+                    <%= currentDate + 12 > 24 ? currentDate - 24 + 12 : currentDate + 12  %>,<%= currentDate + 15 > 24 ? currentDate - 24 + 15 : currentDate  + 15%>,
+                    <%= currentDate + 18 > 24 ? currentDate - 24 + 18 : currentDate  + 18 %>,<%= currentDate + 21 > 24 ? currentDate - 24 + 21 : currentDate + 21  %>,
+                    <%= currentDate > 24 ? currentDate : currentDate %>,<%= currentDate + 3 > 24 ? currentDate - 24 + 3: currentDate + 3 %>],
+                    "datasets": [{
+                        "label": "Weather Forecasts",
+                        "data": [<%= chart[0] %>,<%= chart[1] %>,<%= chart[2] %>,<%= chart[3] %>,<%= chart[4] %>,<%= chart[5] %>,<%= chart[6] %>,<%= chart[7] %>
+                    ,<%= chart[8] %>,<%= chart[9] %>],
+                        "fill": false,
+                        "borderColor": "rgb(75, 192, 192)",
+                        "lineTension": 0.1
+                    }]
+                },
+                "options": {}
+});
+</script>
+</div> 
+
+
 
 <% include partials/footer %>
 

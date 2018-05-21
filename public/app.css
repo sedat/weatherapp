@@ -1,21 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     background: #CC95C0;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(95, 167, 216));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(110, 153, 194)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Stylish', sans-serif;
+    color: darkcyan;
 }
-
 .weather {
     width: 500;
     height: 200;
-    margin: 150 auto;
+    margin: 50px auto;
     text-align: center;
-    color: darkcyan;
     font-size: 24px;
-    font-family: 'Stylish', sans-serif;
+}
+#weatherinfo {
+    display: flex;
 }
 
+#weatherinfodesc {
+    margin-top: 3px;
+    margin-left: 13px;
+    display: inline-block;
+    clear: left;
+    font-size: 12px;
+}
 ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+}
+
+img {
+    width: 30px;
+}
+table {
+    margin: 50px auto;
+    border-collapse: collapse;
+    width: 250px;
+    height: 75px;
+    text-align: center;
+}
+
+table,td,tr {
+    border: 1px solid gray;
+}
+
+canvas {
+    display: inline-block;
+    width: 600px;
+    height: 500px;
+}
+
+
+
+li:first-of-type {
+    font-size: 36px;
+}
+
+@media only screen and (max-width: 720px) {
+    body {
+        background: #CC95C0;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(95, 167, 216));  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #7AA1D2, #DBD4B4, rgb(110, 153, 194)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        font-family: 'Stylish', sans-serif;
+        color: darkcyan;
+    }
+
+    .weather {
+        width: 80%;
+        margin: 150px auto;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    li:first-of-type {
+        font-size: 36px;
+    }
+    canvas {
+        width: 70%;
+        height: 45%;
+    }
+    img {
+        width: 20px;
+    }
+    #weatherinfodesc {
+        margin-left: 6px;
+        margin-right: 0px;
+        display: inline-block;
+        clear: left;
+        font-size: 10px;
+    }
 }
